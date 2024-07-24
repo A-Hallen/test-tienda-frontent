@@ -23,6 +23,10 @@ app.get("/FrontentWeb.styles.css", (req, res) => {
 	res.sendFile(path.join(buildpath, `wwwroot/FrontentWeb.styles.css`));
 });
 
+app.get("/.well-known/assetlinks.json", (req, res) => {
+	res.sendFile(path.join(buildpath, "../assetlinks.json"));
+});
+
 /*
 app.get("/_framework/blazor.webassembly.js", (req, res) => {
 	res.sendFile(path.join(buildpath, `wwwroot/_framework/blazor.webassembly.js`));
