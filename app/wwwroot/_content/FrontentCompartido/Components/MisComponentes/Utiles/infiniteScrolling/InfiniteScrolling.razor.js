@@ -1,4 +1,4 @@
-export function initialize(lastItemIndicator, componentInstance) {
+export function initialize(lastItemIndicator, componentInstance, elementRef) {
     const options = {
         root: findClosestScrollContainer(lastItemIndicator),
         rootMargin: '0px',
@@ -15,11 +15,18 @@ export function initialize(lastItemIndicator, componentInstance) {
         }
     }, options);
 
+    const eventListener = () => UpdateWindowWidth(componentInstance, elementRef);
+
+    window.addEventListener("resize", eventListener);
+    eventListener();
     observer.observe(lastItemIndicator);
 
     // Allow to cleanup resources when the Razor component is removed from the page
     return {
-        dispose: () => dispose(observer),
+        dispose: () => {
+            window.removeEventListener("resize", eventListener);
+            dispose(observer)
+        },
         onNewItems: () => {
             observer.unobserve(lastItemIndicator);
             observer.observe(lastItemIndicator);
@@ -43,4 +50,9 @@ function findClosestScrollContainer(element) {
         element = element.parentElement;
     }
     return null;
+}
+
+function UpdateWindowWidth(objReference, elementRef) {
+    let width = elementRef.parentElement.clientWidth;
+    objReference.invokeMethodAsync("UpdateWindowWidth", width);
 }

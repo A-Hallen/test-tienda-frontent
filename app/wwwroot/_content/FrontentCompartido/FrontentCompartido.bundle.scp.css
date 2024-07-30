@@ -981,14 +981,104 @@ img[b-6y0uzqw7em] {
     margin-top: 8px;
 }
 /* _content/FrontentCompartido/Components/MisComponentes/CartaProducto/RattingBar/RattingBar.razor.rz.scp.css */
-div[b-ifmh4wcc1s] {
+.ratting-bar[b-ifmh4wcc1s] {
     display: flex;
     column-gap: 4px;
     color: #f08c1e;
+    height: 0.8rem;
+    align-items: center;
 }
 
 span[b-ifmh4wcc1s] {
     color: gray;
+    font-size: .9rem;
+}
+
+[b-ifmh4wcc1s] svg {
+    height: 100%;
+    width: auto;
+}
+/* _content/FrontentCompartido/Components/MisComponentes/ComponentesBase/NetLoadingComponent.razor.rz.scp.css */
+.net-loading[b-a6jjbn6nhu] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button[b-a6jjbn6nhu] {
+    border: none;
+    background-color: #ffe7e2;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+    button:hover[b-a6jjbn6nhu] {
+        background-color: #fbd1c8;
+    }
+
+.visible[b-a6jjbn6nhu] {
+    display: block;
+}
+
+.hidden[b-a6jjbn6nhu] {
+    display: none;
+}
+
+.loader[b-a6jjbn6nhu] {
+    width: 50px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 8px solid #514b82;
+    animation: l20-1-b-a6jjbn6nhu 0.8s infinite linear alternate, l20-2-b-a6jjbn6nhu 1.6s infinite linear;
+}
+
+@keyframes l20-1-b-a6jjbn6nhu {
+    0% {
+        clip-path: polygon(50% 50%,0 0, 50% 0%, 50% 0%, 50% 0%, 50% 0%, 50% 0% )
+    }
+
+    12.5% {
+        clip-path: polygon(50% 50%,0 0, 50% 0%, 100% 0%, 100% 0%, 100% 0%, 100% 0% )
+    }
+
+    25% {
+        clip-path: polygon(50% 50%,0 0, 50% 0%, 100% 0%, 100% 100%, 100% 100%, 100% 100% )
+    }
+
+    50% {
+        clip-path: polygon(50% 50%,0 0, 50% 0%, 100% 0%, 100% 100%, 50% 100%, 0% 100% )
+    }
+
+    62.5% {
+        clip-path: polygon(50% 50%,100% 0, 100% 0%, 100% 0%, 100% 100%, 50% 100%, 0% 100% )
+    }
+
+    75% {
+        clip-path: polygon(50% 50%,100% 100%, 100% 100%, 100% 100%, 100% 100%, 50% 100%, 0% 100% )
+    }
+
+    100% {
+        clip-path: polygon(50% 50%,50% 100%, 50% 100%, 50% 100%, 50% 100%, 50% 100%, 0% 100% )
+    }
+}
+
+@keyframes l20-2-b-a6jjbn6nhu {
+    0% {
+        transform: scaleY(1) rotate(0deg)
+    }
+
+    49.99% {
+        transform: scaleY(1) rotate(135deg)
+    }
+
+    50% {
+        transform: scaleY(-1) rotate(0deg)
+    }
+
+    100% {
+        transform: scaleY(-1) rotate(-135deg)
+    }
 }
 /* _content/FrontentCompartido/Components/MisComponentes/DetalleProducto/Boton.razor.rz.scp.css */
 button[b-p4n0w4dmpb] {
@@ -2498,9 +2588,10 @@ h2[b-9q8mwd9xok] {
     margin: auto;
     width: fit-content;
     max-width: 100%;
-    overflow: auto; 
+    overflow: auto;
     padding: 0 15px;
     box-sizing: border-box;
+    scrollbar-width: none;
 }
 
 .contenedor-categorias[b-9q8mwd9xok]  div:first-child {
@@ -2546,9 +2637,13 @@ h2[b-9q8mwd9xok] {
     background: linear-gradient(90deg, transparent, white);
     padding-right: 15px;
 }
+
+[b-9q8mwd9xok] .net-loading {
+    min-height: 100px;
+}
 /* _content/FrontentCompartido/Components/MisComponentes/Home/SeccionDescubrirProductos.razor.rz.scp.css */
 .contenedor-principal[b-k04tdldbbd] {
-    padding: 2rem;
+    padding: 2vw;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -3992,6 +4087,12 @@ div[b-40zpq3je1p] {
     display: flex;
     gap: 10px;
 }
+
+@media(max-width: 450px){
+    .grid[b-40zpq3je1p] {
+        gap: 5px;
+    }
+}
 /* _content/FrontentCompartido/Components/MisComponentes/Utiles/RippleButton.razor.rz.scp.css */
 button[b-v1n2glv2bp] {
     position: relative;
@@ -4361,7 +4462,11 @@ h1[b-w9e6f58yha] {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: auto;
+    min-height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
 }
 
     .form-popup .form-box[b-qad34fn3y7] {
@@ -4372,7 +4477,7 @@ h1[b-w9e6f58yha] {
         justify-content: center;
     }
 
-svg[b-qad34fn3y7] {
+[b-qad34fn3y7] svg {
     background: white;
     border-radius: 50%;
     padding: 5px;
@@ -4486,14 +4591,14 @@ form[b-qad34fn3y7] {
     color: var(--secondary-color);
     text-decoration: none;
     cursor: pointer;
+    display: inline-flex;
 }
 
     .form-box a:hover[b-qad34fn3y7] {
-        font-weight: 600;
+        transform: scale(1.1);
     }
 
 .forgot-pass-link[b-qad34fn3y7] {
-    display: inline-flex;
     margin-top: 13px;
     font-size: 0.95rem;
 }
@@ -4532,10 +4637,6 @@ form button[b-qad34fn3y7] {
 
 
 @media (max-width: 760px) {
-    .form-popup[b-qad34fn3y7] {
-        width: 95%;
-    }
-
     .form-box .form-content[b-qad34fn3y7] {
         padding: 30px 20px;
     }

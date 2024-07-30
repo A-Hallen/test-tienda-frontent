@@ -1,0 +1,2 @@
+"C:\Program Files\Android\jdk\jdk-8.0.302.8-hotspot\jdk8u302-b08\bin\keytool" -genkey -v -keystore SimpleMAUIApp.keystore -alias SimpleMAUIApp -keyalg RSA -keysize 2048 -validity 20000
+"C:\Program Files\Android\jdk\jdk-8.0.302.8-hotspot\jdk8u302-b08\bin\keytool" -J-Duser.language=en -list -v -keystore SimpleMAUIApp.keystore -alias SimpleMAUIApp -storepass 412120 -keypass 412120
